@@ -1,3 +1,5 @@
+package com.backend.demo.model;
+
 public record Book(Long id, String title, String author) {
     // Records automatically provide:
     // - Constructor
