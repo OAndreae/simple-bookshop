@@ -22,6 +22,7 @@ afterEach(() => {
   testQueryClient.clear()
 })
 
+// eslint-disable-next-line react-refresh/only-export-components
 function TestProvider({
   children
 }: Readonly<PropsWithChildren>) {
