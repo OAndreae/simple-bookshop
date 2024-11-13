@@ -14,21 +14,22 @@ describe('UserList', () => {
     
     // Wait for users to be loaded
     const users = await screen.findAllByRole('listitem')
-    expect(users).toHaveLength(2)
+    expect(users).toHaveLength(3)
     expect(users[0]).toHaveTextContent('John Doe')
     expect(users[1]).toHaveTextContent('Jane Smith')
+    expect(users[2]).toHaveTextContent('Alice Johnson')
   })
 
   it('handles error state', async () => {
     server.use(
-      http.get('/api/users', () => {
+      http.get('http://localhost:8080/api/users', () => {
         return HttpResponse.error()
       })
     )
 
     renderWithClient(<UserList />)
     
-    const errorMessage = await screen.findByText('Error loading users')
+    const errorMessage = await screen.findByText('Error loading users: Network Error')
     expect(errorMessage).toBeInTheDocument()
   })
 }) 

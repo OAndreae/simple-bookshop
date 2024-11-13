@@ -11,13 +11,8 @@ beforeEach(() => {
     defaultOptions: {
       queries: {
         retry: false,
-        cacheTime: Infinity,
+        gcTime: Infinity,
       },
-    },
-    logger: {
-      log: console.log,
-      warn: console.warn,
-      error: () => {},
     }
   })
 })
@@ -29,7 +24,7 @@ afterEach(() => {
 
 function TestProvider({
   children
-}: PropsWithChildren) {
+}: Readonly<PropsWithChildren>) {
   return (
     <QueryClientProvider client={testQueryClient}>
       {children}

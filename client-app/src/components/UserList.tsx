@@ -7,7 +7,7 @@ interface User {
 }
 
 async function fetchUsers() {
-  const response = await axios.get<User[]>('http://127.0.0.1:8080/api/users')
+  const response = await axios.get<User[]>('http://localhost:8080/api/users')
   return response.data
 }
 
