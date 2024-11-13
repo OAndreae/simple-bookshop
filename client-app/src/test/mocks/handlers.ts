@@ -1,4 +1,5 @@
 import { http, HttpResponse } from 'msw'
+import booksResponse from './responses/api/books.json'
 import usersResponse from './responses/api/users.json'
 
 export const HTTP_METHOD = {
@@ -32,5 +33,6 @@ const addHandler = (method: HttpMethod, endpoint: string, response: object) => {
 }
 
 export const handlers = [
-  addHandler(HTTP_METHOD.GET, '/api/users', usersResponse)
+  addHandler(HTTP_METHOD.GET, '/api/users', usersResponse),
+  addHandler(HTTP_METHOD.GET, '/api/books', booksResponse),
 ] 
